@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional QR Kod Generatori</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Professional QR Kod Generatori</h1>
+        
+        <div class="input-section">
+            <div class="type-selector">
+                <button class="type-btn active" data-type="text">Matn</button>
+                <button class="type-btn" data-type="url">URL</button>
+                <button class="type-btn" data-type="email">Email</button>
+                <button class="type-btn" data-type="tel">Telefon</button>
+                <button class="type-btn" data-type="sms">SMS</button>
+                <button class="type-btn" data-type="wifi">Wi-Fi</button>
+            </div>
+
+            <div class="input-fields">
+                <!-- Matn uchun -->
+                <div class="input-group" id="text-input">
+                    <textarea placeholder="Matningizni kiriting"></textarea>
+                </div>
+
+                <!-- URL uchun -->
+                <div class="input-group hidden" id="url-input">
+                    <input type="url" placeholder="https://example.com">
+                </div>
+
+                <!-- Email uchun -->
+                <div class="input-group hidden" id="email-input">
+                    <input type="email" placeholder="Email manzil">
+                    <input type="text" placeholder="Mavzu (ixtiyoriy)">
+                    <textarea placeholder="Xabar matni (ixtiyoriy)"></textarea>
+                </div>
+
+                <!-- Telefon uchun -->
+                <div class="input-group hidden" id="tel-input">
+                    <input type="tel" placeholder="Telefon raqami">
+                </div>
+
+                <!-- SMS uchun -->
+                <div class="input-group hidden" id="sms-input">
+                    <input type="tel" placeholder="Telefon raqami">
+                    <textarea placeholder="SMS matni"></textarea>
+                </div>
+
+                <!-- Wi-Fi uchun -->
+                <div class="input-group hidden" id="wifi-input">
+                    <input type="text" placeholder="Tarmoq nomi (SSID)">
+                    <select>
+                        <option value="WPA">WPA/WPA2</option>
+                        <option value="WEP">WEP</option>
+                        <option value="nopass">Parolsiz</option>
+                    </select>
+                    <input type="password" placeholder="Parol">
+                    <label>
+                        <input type="checkbox"> Yashirin tarmoq
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="qr-options">
+            <div class="option-group">
+                <label>O'lcham:</label>
+                <input type="range" id="size" min="100" max="400" value="200">
+                <span id="sizeValue">200 x 200</span>
+            </div>
+            
+            <div class="option-group">
+                <label>Rang:</label>
+                <input type="color" id="color" value="#000000">
+            </div>
+            
+            <div class="option-group">
+                <label>Orqa fon:</label>
+                <input type="color" id="bgcolor" value="#FFFFFF">
+            </div>
+
+            <div class="option-group">
+                <label>Xatolikni tuzatish:</label>
+                <select id="errorCorrection">
+                    <option value="L">Past (7%)</option>
+                    <option value="M">O'rta (15%)</option>
+                    <option value="Q">Yuqori (25%)</option>
+                    <option value="H">Eng yuqori (30%)</option>
+                </select>
+            </div>
+        </div>
+
+        <button id="generate-btn">QR Kod Yaratish</button>
+
+        <div class="qr-result hidden">
+            <div id="qrcode"></div>
+            <div class="action-buttons">
+                <button id="download-png">PNG yuklab olish</button>
+                <button id="download-svg">SVG yuklab olish</button>
+                <button id="print-btn">Chop etish</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
